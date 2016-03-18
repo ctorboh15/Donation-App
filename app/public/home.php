@@ -1,6 +1,6 @@
 <?php
 require_once '../Web/includes/bootstrap.php';
-require_once '../Controller/HomeController.php';
+require_once '../Core/Controller/HomeController.php';
 include_once '../Views/includes/header.php';
 ?>
 
@@ -45,52 +45,27 @@ include_once '../Views/includes/header.php';
 </div>
 
 
-	<div class="container">
-	  <h2>Pagination</h2>
-	  <p>The .pagination class provides pagination links:</p>     
-	  
-	  <div class="container ">
-	  <h2>List Group With Custom Content</h2>
-		  <div class="list-group scrollable">
-		    <a href="#" class="list-group-item active">
-		      <h4 class="list-group-item-heading">First List Group Item Heading</h4>
-		      <p class="list-group-item-text">List Group Item Text</p>
-		    </a>
-		    <a href="#" class="list-group-item">
-		      <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
-		      <p class="list-group-item-text">List Group Item Text</p>
-		    </a>
-		    <a href="#" class="list-group-item">
-		      <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
-		      <p class="list-group-item-text">List Group Item Text</p>
-		    </a>
-		    <a href="#" class="list-group-item">
-		      <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
-		      <p class="list-group-item-text">List Group Item Text</p>
-		    </a>
-		    <a href="#" class="list-group-item">
-		      <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
-		      <p class="list-group-item-text">List Group Item Text</p>
-		    </a>
-		    <a href="#" class="list-group-item">
-		      <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
-		      <p class="list-group-item-text">List Group Item Text</p>
-		    </a>
-		    <a href="#" class="list-group-item">
-		      <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
-		      <p class="list-group-item-text">List Group Item Text</p>
-		    </a>
-		    
+	<div class="container">  
+	  <div class="row ">
+	  <div class="col-md-12">
+		   <h2>Announcements</h2>
+		   <ul class="list-group">
+		 	<?php foreach ($announcementsList as $item):?>	 	
+		 	 	<li class="list-group-item">
+		 	 	<span class="badge" style="align:right;"><?php print $item->endDt;?></span>
+		 			<a> <h4 class="list-group-item-heading"><?php print $item->title;?> </h4></a>
+			      <p class="list-group-item-text"><?php print $item->body;?></p>	    
+		   		</li>
+		  	 
+			<?php endforeach;?>	
+		 	 </ul>
+	 		</div>    
 		  </div>	  
 		</div>             
-	  <ul class="pagination">
-	    <li><a href="#">1</a></li>
-	    <li><a href="#">2</a></li>
-	    <li><a href="#">3</a></li>
-	    <li><a href="#">4</a></li>
-	    <li><a href="#">5</a></li>
-	  </ul>
 	</div>
+	
+
+
 
 
 <?php include_once '../Views/includes/footer.php';?>
