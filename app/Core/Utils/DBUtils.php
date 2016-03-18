@@ -6,11 +6,11 @@ class DBUtils
 {
 	public static function getConnection()
 	{
-		$link = new mysqli(Util::getDbServer(), Util::getDbUserName(), Util::getDbPassword(), Util::getDbName(), 3306);
+		$link = new mysqli(Util::getDbServer(), Util::getDbUserName(), Util::getDbPassword(), Util::getDbName(),3306);
+		
 		if (!$link) {
 			die('Could not connect: ' . mysql_error());
 		}
-		echo 'Connected successfully';
 		
 		return $link;
 	}
@@ -46,6 +46,23 @@ class DBUtils
 	public static function closeConnection(mysqli $conn)
 	{
 		mysqli_close($conn);
+	}
+	
+	public static function createParameters(array $params)
+	{
+		$paramString = '(';
+		$sizeOfArray = sizeof($params);
+		for ($i = 0; $i < $sizeOfArray; $i++)
+		{
+			$paramString.$params[$i];
+			if($i < $sizeOfArray -1)
+			{
+				$paramString.',';
+			}
+		}
+		
+		$paramString.')';
+		return $paramString;
 	}
 	
 }

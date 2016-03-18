@@ -1,6 +1,6 @@
-CREATE DATABASE Donation
+CREATE DATABASE Donation;
 
-USE Donations;
+USE Donation;
 
 DROP TABLE IF EXISTS `AppUser`;
 	CREATE TABLE  AppUser (

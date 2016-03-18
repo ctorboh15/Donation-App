@@ -1,48 +1,67 @@
 <?php
 require_once '../Web/includes/bootstrap.php';
-include_DTO('Announcement');
+include_DTO('AnnouncementDTO');
 include_Util('DBUtils');
+include_Manager('AppManager');
 
 class AnnouncementManager implements AppManager
 {
-	private final $sp_Find = 'sp_findAnnouncement';
-	private final $sp_FindActive = 'sp_findAllActive';
-	private final $sp_Save = 'sp_SaveAnnouncement';
+	private $sp_Find = 'sp_findAnnouncement';
+	private  $sp_FindActive = 'sp_findAllActiveAnnouncements';
+	private  $sp_Save = 'sp_SaveAnnouncement';
 	
-	public function find($id, AnnouncementDTO $dto, $conn)
-	{
+	public function find($id, AbstractDTO $dto, $conn = null)
+	{ 
 		if(is_null($conn))
 		{
 			$conn =	DBUtils::getConnection();
 		}
 		
-		mysqli_query($conn, $query);
+		$params = array($dto->announcementID);
+	//	$query = 'Call ' . $this->sp_Find . DBUtils::createParameters($params);
 		
-		if($res = $conn->store_result())
+		$query = ' Select * from Announcements';
+		$res = $conn->query($query);
+		
+		if($res->num_rows > 0)
 		{
-			printf("---\n");
-			var_dump($res->fetch_all());
-			$res->free();
+			$annoucnmentList = array();
+			
+			while($row = $res->fetch_assoc())
+			{				
+				$dto = new AnnouncementDTO();
+				$annoucnmentList[] = $dto->loadDTOFromQuery($row);
+			}						
 		}
-		else 
-		{
-			if ($mysqli->errno) 
-			{
-				echo "Store failed: (" . $mysqli->errno . ") " . $mysqli->error;
-			}
-		}
-		
-		
+						
 	}
 	
 	
-	public function findActive()
+	public function findAllActive()
+	{
+		$conn =	DBUtils::getConnection();		
+		$query = 'Select * from Announcements';
+		$res = $conn->query($query);
+		$announcementList = array();
+		
+		while($result = $res->fetch_assoc())
+		{
+			$dto = new AnnouncementDTO();
+			$dto->loadDTOFromQuery($result);
+			$announcementList[] = $dto;			
+		}		
+		$conn->close();
+		return $announcementList;			
+	}
+	
+	
+	public function findActive($conn = null)
 	{
 		
 	}
 	
 	
-	public function save($dto)
+	public function save(AbstractDTO $dto, $conn = null)
 	{
 		
 	}

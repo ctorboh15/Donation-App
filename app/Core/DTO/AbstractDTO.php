@@ -1,8 +1,6 @@
 <?php
 abstract class AbstractDTO
 {
-	public abstract function loadDTOFromQuery()
-	{
-		
-	}
+	public abstract function loadDTOFromQuery($result);
+	
 }
