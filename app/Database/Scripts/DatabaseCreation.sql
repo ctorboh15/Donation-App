@@ -38,3 +38,5 @@ DROP TABLE IF EXISTS `Announcements`;
 	PRIMARY KEY (AnnouncementID)
 	);
 
+
+INSERT INTO `Donation`.`AppUser` (`AppUserID`, `UserName`, `Password`, `ContactID`, `OrgID`, `CrtDt`, `ActiveInd`) VALUES (NULL, 'Ctorboh', 'Decadent19', '0', NULL, '2016-03-18 00:00:00', 'Y');

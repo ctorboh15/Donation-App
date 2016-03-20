@@ -6,18 +6,16 @@ include_once '../Views/includes/header.php';
 
 
 
-<div class="container">
-	<div class="row">
-		<div class="jumbotron"><h1>Welcome to the New Donation Site</h1></div>
-	</div>
-</div>
+<div class="jumbotron" style="text-align: center;"><h1 >Welcome to the New Donation Site</h1></div>
 
 
 
 <div class="container">
 	<div class="row">
+	
 		<div class="col-md-4 login">
-			<form role="form" action="/public/home.php">
+		<div class="well">
+			<form role="form" action="/public/home.php" method="post">
 				<div class="form-group">
 					<label for="userName">Organization Name:</label>
 					<input type="text" class="form-control" id="userName" name="userName">
@@ -28,9 +26,10 @@ include_once '../Views/includes/header.php';
 					<input type="password" class="form-control" id="password" name="passWord">
 				</div>
 				
-				<button type="submit" class="btn btn-default">Submit</button>
+				<button type="submit" class="btn btn-default" value="login" name="action">Submit</button>
 			</form>
 		</div>
+	</div>
 		
 		<div class="col-md-8">
 			<div class="panel panel-default">
