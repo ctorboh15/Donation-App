@@ -4,19 +4,29 @@ include_Util('DBUtils');
 include_Manager('AnnouncementManager');
 include_Manager('LoginManager');
 include_DTO('AnnouncementDTO');
+
 $mgr = new AnnouncementManager();
 $dto = new AnnouncementDTO();
-
+$messages = array();
 
 $orgname = RequestUtils::getRequestVariable('userName');
 $action = RequestUtils::getRequestVariable('action');
 $password = RequestUtils::getRequestVariable('passWord');
+
 if($action === 'login')
-{
-	$messages = array();
+{	
 	$loginMgr = new LoginManager();
-	$loginMgr->doLogin($orgname, $password);	
+	
+	if($loginMgr->doLogin($orgname, $password))
+	{
+		header('Location: '. AppConstants::USER_HOME_PAGE);
+	}
+	else 
+	{
+		$messages[] = "Sorry the system could not log you in";
+	}	 	
 }
+
 
 $aboutUs = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
 		labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
@@ -25,3 +35,5 @@ $aboutUs = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius
 		anim id est laborum.";
 
 $announcementsList = $mgr->findAllActive();
+
+

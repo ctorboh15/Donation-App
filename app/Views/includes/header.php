@@ -1,3 +1,4 @@
+
 <html>
 <head>
 
@@ -14,4 +15,40 @@
     <![endif]-->
 </head>
 <body>
-<p>HEADER</p>
+<style>
+<!--
+
+-->
+
+.container
+{
+	width:1700px;
+}
+.navBtn
+{
+	width:100%;
+}
+
+#organization-Well
+{
+	
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+</style>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/public/home.php">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>

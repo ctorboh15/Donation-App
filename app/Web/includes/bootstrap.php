@@ -1,4 +1,5 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT'].'/Core/Resources/AppConstants.php';
 define('APP_INCLUDE_PATH', $_SERVER['DOCUMENT_ROOT'].'/Core/');
 define('APP_UTIL_PATH', APP_INCLUDE_PATH.'Utils/');
 define('APP_DTO_PATH', APP_INCLUDE_PATH. 'DTO/');
@@ -19,3 +20,4 @@ function include_Manager($fileName)
 {
 	include_once  APP_MGR_PATH . $fileName . '.php';
 }
+

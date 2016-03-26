@@ -2,22 +2,21 @@
 include_Util('DBUtils');
 class LoginManager
 {
-	var $userPage = '/public/userPage.php';
+	
 	var $userExists = false;
 	
 	public function doLogin($userName, $password)
 	{
-		if(self::verifyUser($userName, $password))
-		{
-			header('Location: '. $this->userPage);
-		}
+		return self::verifyUser($userName, $password);
 	}
 	
 	
 	protected function verifyUser($username, $password)
 	{
 		$conn =  DBUtils::getConnection();
-		$query = 'Select * from AppUser WHERE UserName = ' .$username . 'AND Password = '. $password;
+		$query = "SELECT * from AppUser WHERE UserName LIKE '" .$username . "' AND Password LIKE '". $password . "'";
+		
+		print $query;
 		$res = $conn->query($query);
 		
 		if($res->num_rows > 0)

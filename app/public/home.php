@@ -28,6 +28,12 @@ include_once '../Views/includes/header.php';
 				
 				<button type="submit" class="btn btn-default" value="login" name="action">Submit</button>
 			</form>
+			<div>
+			<?php foreach ($messages as $message)
+				  {
+					print $message;
+				   }?>				   
+			</div>
 		</div>
 	</div>
 		

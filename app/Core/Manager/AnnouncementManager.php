@@ -18,7 +18,6 @@ class AnnouncementManager implements AppManager
 		}
 		
 		$params = array($dto->announcementID);
-	//	$query = 'Call ' . $this->sp_Find . DBUtils::createParameters($params);
 		
 		$query = ' Select * from Announcements';
 		$res = $conn->query($query);
@@ -32,8 +31,7 @@ class AnnouncementManager implements AppManager
 				$dto = new AnnouncementDTO();
 				$annoucnmentList[] = $dto->loadDTOFromQuery($row);
 			}						
-		}
-						
+		}						
 	}
 	
 	
