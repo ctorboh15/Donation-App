@@ -16,7 +16,6 @@ class LoginManager
 		$conn =  DBUtils::getConnection();
 		$query = "SELECT * from AppUser WHERE UserName LIKE '" .$username . "' AND Password LIKE '". $password . "'";
 		
-		print $query;
 		$res = $conn->query($query);
 		
 		if($res->num_rows > 0)
@@ -27,6 +26,9 @@ class LoginManager
 		}
 		return $this->userExists;
 	}
+	
+	
+	
 	
 	
 }

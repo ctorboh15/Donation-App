@@ -1,54 +1,68 @@
+<?php 
+if (!isset($_SESSION["user_id"])) {
+    $_SESSION["auth"] = false;
+}?>
 
 <html>
 <head>
-
+<link href="../../../Lib/BootStrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="../../Lib/js/JQuery.js"></script>
+    <script src="../Lib/BootStrap/js/bootstrap.min.js"></script>
+     
 	<link href="../../Lib/css/app.css" rel="stylesheet">  
-    <link href="../../Lib/BootStrap/css/bootstrap.min.css" rel="stylesheet">
-    <script src="../../Lib/BootStrap/js/bootstrap.min.js"></script>
-     <script src="../../Lib/js/JQuery.js"></script>
- 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    
 </head>
 <body>
-<style>
-<!--
-
--->
-
-.container
-{
-	width:1700px;
-}
-.navBtn
-{
-	width:100%;
-}
-
-#organization-Well
-{
-	
-}
-
-th, td {
-    padding: 15px;
-    text-align: left;
-}
-</style>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="/public/home.php">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
-    </ul>
-  </div>
-</nav>
+<div class="jumbotron" style="text-align: center;"><h1 >Welcome to the New Donation Site</h1></div>
+<div class="container-fluid">
+  <div class="row content">
+  
+  <?php if (!$_SESSION["auth"]):?>
+   <div class="col-sm-3 sidenav">
+   <div class="well">
+			<form role="form" action="/public/home.php" method="post">
+				<div class="form-group">
+					<label for="userName">Organization Name:</label>
+					<input type="text" class="form-control" id="userName" name="userName">
+				</div>
+				
+				<div class="form-group">
+					<label for="password">Password:</label>
+					<input type="password" class="form-control" id="password" name="passWord">
+				</div>
+				
+				<button type="submit" class="btn btn-default" value="login" name="action">Submit</button>
+				
+			</form>
+			<div>
+			<?php foreach ($messages as $message)
+				  {
+					print $message;
+				   }?>				   
+			</div>
+		</div>
+		<div class="well">
+			something can go here
+			
+		</div>
+   </div>
+   <?php else :?>
+   	<div class="col-sm-3 sidenav">
+		<div class="well well-lg" id="organization-Well"> 
+		<h1>User Info</h1>
+			<table class="table table-striped table-bordered">
+			<tbody>
+				<tr>
+					<td>Organization Name</td>
+					<td>$OrgName</td>				
+				</tr>
+				<tr>
+					<td>Location</td>
+					<td>$Location</td>				
+				</tr>
+			</tbody>   				 
+   			</table>		
+		</div>
+		</div>
+	<?php endif;?>
+   <div class="col-sm-9">

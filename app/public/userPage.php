@@ -5,23 +5,7 @@ include_once '../Views/includes/header.php';
 <div class="container">
 	<div class="row">
 	
-	<div class="col-md-4 orgInfo">
-		<div class="well well-lg" id="organization-Well"> 
-		<h1>User Info</h1>
-			<table class="table table-striped table-bordered">
-			<tbody>
-				<tr>
-					<td>Organization Name</td>
-					<td>$OrgName</td>				
-				</tr>
-				<tr>
-					<td>Location</td>
-					<td>$Location</td>				
-				</tr>
-			</tbody>   				 
-   			</table>		
-		</div>
-		</div>
+
 		
 			<div class="col-md-8 orgInfo">
 		<div class="well well-lg"> 
@@ -41,3 +25,4 @@ include_once '../Views/includes/header.php';
 </div>
 
 
+<?php include_once '../Views/includes/addAnnouncementInclude.php'; ?>

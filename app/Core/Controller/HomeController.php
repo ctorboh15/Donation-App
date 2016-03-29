@@ -20,6 +20,7 @@ if($action === 'login')
 	if($loginMgr->doLogin($orgname, $password))
 	{
 		header('Location: '. AppConstants::USER_HOME_PAGE);
+		exit();
 	}
 	else 
 	{

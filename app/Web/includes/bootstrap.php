@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION["auth"]))
+{
+	$_SESSION["auth"] = false;
+}
+
+
 include_once $_SERVER['DOCUMENT_ROOT'].'/Core/Resources/AppConstants.php';
 define('APP_INCLUDE_PATH', $_SERVER['DOCUMENT_ROOT'].'/Core/');
 define('APP_UTIL_PATH', APP_INCLUDE_PATH.'Utils/');

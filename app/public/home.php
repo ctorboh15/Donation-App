@@ -4,40 +4,6 @@ require_once '../Core/Controller/HomeController.php';
 include_once '../Views/includes/header.php';
 ?>
 
-
-
-<div class="jumbotron" style="text-align: center;"><h1 >Welcome to the New Donation Site</h1></div>
-
-
-
-<div class="container">
-	<div class="row">
-	
-		<div class="col-md-4 login">
-		<div class="well">
-			<form role="form" action="/public/home.php" method="post">
-				<div class="form-group">
-					<label for="userName">Organization Name:</label>
-					<input type="text" class="form-control" id="userName" name="userName">
-				</div>
-				
-				<div class="form-group">
-					<label for="password">Password:</label>
-					<input type="password" class="form-control" id="password" name="passWord">
-				</div>
-				
-				<button type="submit" class="btn btn-default" value="login" name="action">Submit</button>
-			</form>
-			<div>
-			<?php foreach ($messages as $message)
-				  {
-					print $message;
-				   }?>				   
-			</div>
-		</div>
-	</div>
-		
-		<div class="col-md-8">
 			<div class="panel panel-default">
 	  			<div class="panel-heading">About Us</div>
 	  			<div class="panel-body">
@@ -45,32 +11,46 @@ include_once '../Views/includes/header.php';
 	  			</div>
 	  			<div class="panel-footer">Panel Footer</div>
 			</div>
-		</div>			
-	</div>	
-</div>
-
-
-	<div class="container">  
-	  <div class="row ">
-	  <div class="col-md-12">
-		   <h2>Announcements</h2>
-		   <ul class="list-group">
-		 	<?php foreach ($announcementsList as $item):?>	 	
-		 	 	<li class="list-group-item">
-		 	 	<span class="badge" style="align:right;"><?php print $item->endDt;?></span>
-		 			<a> <h4 class="list-group-item-heading"><?php print $item->title;?> </h4></a>
-			      <p class="list-group-item-text"><?php print $item->body;?></p>	    
-		   		</li>
-		  	 
-			<?php endforeach;?>	
-		 	 </ul>
-	 		</div>    
-		  </div>	  
-		</div>             
-	</div>
 	
+	
+	
+			<div class="panel panel-default">
+	  			<div class="panel-heading"> <h2>Announcements</h2></div>
+	  			<div class="panel-body">
+		  			<div class="list-group">
+		  				<?php foreach ($announcementsList as $item):?>	
+		  				<button type="button" class="btn btn-default btn-block btn-lg" data-toggle="modal" data-target="#myModal" width="100%;"><?php print $item->title;?></button>
+					  <?php endforeach;?>	
+					</div>		
+	  			</div>
+	  			<div class="panel-footer">Announcement Footer</div>
+			</div>
+			
+			
 
+			
+		<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
 
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <?php include_once '../Views/includes/footer.php';?>
