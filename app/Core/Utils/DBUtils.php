@@ -6,7 +6,7 @@ class DBUtils
 {
 	public static function getConnection()
 	{
-		$link = new mysqli('127.0.0.1:3306', 'appUser', 'Execute1', Util::getDbName());
+		$link = new mysqli('127.0.0.1', 'root', 'Decadent19', Util::getDbName(),3306);
 		
 		if (!$link) {
 			die('Could not connect: ' . mysql_error());

@@ -1,13 +1,18 @@
 <?php 
+require_once '../Web/includes/bootstrap.php';
+
 if (!isset($_SESSION["user_id"])) {
     $_SESSION["auth"] = false;
-}?>
+}
+
+?>
 
 <html>
 <head>
 <link href="../../../Lib/BootStrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="../../Lib/js/JQuery.js"></script>
     <script src="../Lib/BootStrap/js/bootstrap.min.js"></script>
+    <script src="../../Lib/js/appJs.js"></script>
      
 	<link href="../../Lib/css/app.css" rel="stylesheet">  
     
@@ -16,10 +21,16 @@ if (!isset($_SESSION["user_id"])) {
 <div class="jumbotron" style="text-align: center;"><h1 >Welcome to the New Donation Site</h1></div>
 <div class="container-fluid">
   <div class="row content">
-  
-  <?php if (!$_SESSION["auth"]):?>
    <div class="col-sm-3 sidenav">
    <div class="well">
+		<ul class="nav nav-pills nav-stacked">
+			<li role="presentaion"><a href="/public/home.php">Home</a></li>
+			<li role="presentaion"><a href="#">Link 2</a></li>
+			<li role="presentaion"><a href="#">Link 3</a></li>
+		</ul>
+	</div>
+   <div class="well">
+  <?php if (!$_SESSION["auth"]):?>   
 			<form role="form" action="/public/home.php" method="post">
 				<div class="form-group">
 					<label for="userName">Organization Name:</label>
@@ -39,16 +50,9 @@ if (!isset($_SESSION["user_id"])) {
 				  {
 					print $message;
 				   }?>				   
-			</div>
-		</div>
-		<div class="well">
-			something can go here
-			
-		</div>
-   </div>
-   <?php else :?>
-   	<div class="col-sm-3 sidenav">
-		<div class="well well-lg" id="organization-Well"> 
+			</div>		
+   
+   <?php else :?>   	
 		<h1>User Info</h1>
 			<table class="table table-striped table-bordered">
 			<tbody>
@@ -61,8 +65,12 @@ if (!isset($_SESSION["user_id"])) {
 					<td>$Location</td>				
 				</tr>
 			</tbody>   				 
-   			</table>		
-		</div>
-		</div>
+   			</table>
+   			<div>										
+   				<p style="text-align: right;"><a href="/public/logOut.php?action=signout">Sign Out</a>
+   			</div>	
 	<?php endif;?>
+	</div>
+		
+	</div>
    <div class="col-sm-9">

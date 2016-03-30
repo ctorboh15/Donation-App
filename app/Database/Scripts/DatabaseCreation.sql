@@ -38,5 +38,15 @@ DROP TABLE IF EXISTS `Announcements`;
 	PRIMARY KEY (AnnouncementID)
 	);
 
+DROP TABLE IF EXISTS `Contact`;
+	CREATE TABLE  Contact (
+	ContactID	 		INT 				NOT NULL 		AUTO_INCREMENT,
+	FirstName			VARCHAR(50)		NOT NULL,
+	LastName 	    	VARCHAR(50)
+	Address				VARCHAR(50),
+	OrgID				INT,
+	ActiveIND			NVARCHAR(1),
+	PRIMARY KEY (AnnouncementID)
+	);
 
 INSERT INTO `Donation`.`AppUser` (`AppUserID`, `UserName`, `Password`, `ContactID`, `OrgID`, `CrtDt`, `ActiveInd`) VALUES (NULL, 'Ctorboh', 'Decadent19', '0', NULL, '2016-03-18 00:00:00', 'Y');

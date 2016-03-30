@@ -14,12 +14,12 @@ include_once '../Views/includes/header.php';
 	
 	
 	
-			<div class="panel panel-default">
+			<div class="panel panel-default anncDiv">
 	  			<div class="panel-heading"> <h2>Announcements</h2></div>
 	  			<div class="panel-body">
 		  			<div class="list-group">
 		  				<?php foreach ($announcementsList as $item):?>	
-		  				<button type="button" class="btn btn-default btn-block btn-lg" data-toggle="modal" data-target="#myModal" width="100%;"><?php print $item->title;?></button>
+		  				<button type="button" class="btn btn-default btn-block btn-lg annBtn" data-toggle="modal" data-target="#announcementModal" width="100%;"><?php print $item->title;?></button>
 					  <?php endforeach;?>	
 					</div>		
 	  			</div>
@@ -33,9 +33,8 @@ include_once '../Views/includes/header.php';
 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="announcementModal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
-
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">

@@ -2,7 +2,7 @@
 ?>
 <div class="container">
 	<div class="row">
-		<div class="col-md-8 orgInfo">
+		<div class="col-md-12 orgInfo">
 			<div class="well well-lg" id="organization-Well">
 			<form class="form-horizontal" role="form">
 				<table width="100%;">

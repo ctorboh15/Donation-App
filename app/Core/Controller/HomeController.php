@@ -1,6 +1,6 @@
 <?php 
 include_Util('RequestUtils');
-include_Util('DBUtils');
+include_Util('NavUtil');
 include_Manager('AnnouncementManager');
 include_Manager('LoginManager');
 include_DTO('AnnouncementDTO');
@@ -19,7 +19,7 @@ if($action === 'login')
 	
 	if($loginMgr->doLogin($orgname, $password))
 	{
-		header('Location: '. AppConstants::USER_HOME_PAGE);
+		NavUtil::redirect(AppConstants::USER_HOME_PAGE);
 		exit();
 	}
 	else 
