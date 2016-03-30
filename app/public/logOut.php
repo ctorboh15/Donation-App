@@ -1,4 +1,5 @@
 <?php
+
 require_once '../Web/includes/bootstrap.php';
 include_Util('RequestUtils');
 $action = RequestUtils::getRequestVariable('action');

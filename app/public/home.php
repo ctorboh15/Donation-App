@@ -19,7 +19,7 @@ include_once '../Views/includes/header.php';
 	  			<div class="panel-body">
 		  			<div class="list-group">
 		  				<?php foreach ($announcementsList as $item):?>	
-		  				<button type="button" class="btn btn-default btn-block btn-lg annBtn" data-toggle="modal" data-target="#announcementModal" width="100%;"><?php print $item->title;?></button>
+		  				<button id="<?php print $item->announcementID;?>" type="button" class="btn btn-default btn-block btn-lg annBtn" data-toggle="modal" data-target="#announcementModal" width="100%;"><?php print $item->title;?></button>
 					  <?php endforeach;?>	
 					</div>		
 	  			</div>

@@ -19,17 +19,17 @@ class AnnouncementManager implements AppManager
 		
 		$params = array($dto->announcementID);
 		
-		$query = ' Select * from Announcements';
+		$query = ' Select * from Announcements WHERE AnnouncementID = ' . $id;
 		$res = $conn->query($query);
 		
 		if($res->num_rows > 0)
-		{
-			$annoucnmentList = array();
-			
+		{	
 			while($row = $res->fetch_assoc())
 			{				
 				$dto = new AnnouncementDTO();
-				$annoucnmentList[] = $dto->loadDTOFromQuery($row);
+				 $dto->loadDTOFromQuery($row);
+				 $conn->close();
+				 return $dto;
 			}						
 		}						
 	}

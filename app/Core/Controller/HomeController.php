@@ -28,6 +28,14 @@ if($action === 'login')
 	}	 	
 }
 
+if($action === 'ajax')
+{
+	$id = RequestUtils::getRequestVariable('id');
+	$dto = $mgr->find($id, $dto);
+	echo json_encode($dto);
+	exit();
+}
+
 
 $aboutUs = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
 		labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
