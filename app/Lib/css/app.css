@@ -4,3 +4,23 @@
 	 max-height: 400px;
     overflow-y:scroll;
 }
+
+body
+{
+	background-color:orange;
+}
+
+button.btn
+{
+  background-color:  lightblue;
+}
+
+div.content-container 
+{
+	background-color:  red;
+}
+
+div.panel-footer, div.panel-default > .panel-heading
+{
+	background-color:  red;
+}

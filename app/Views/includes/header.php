@@ -6,14 +6,13 @@ if (!isset($_SESSION["user_id"])) {
 }
 
 ?>
-
+<!DOCTYPE html>
 <html>
 <head>
 <link href="../../../Lib/BootStrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="../../Lib/js/JQuery.js"></script>
     <script src="../Lib/BootStrap/js/bootstrap.min.js"></script>
     <script src="../../Lib/js/appJs.js"></script>
-     
 	<link href="../../Lib/css/app.css" rel="stylesheet">  
     
 </head>
@@ -29,7 +28,7 @@ if (!isset($_SESSION["user_id"])) {
 			<li role="presentaion"><a href="#">Link 3</a></li>
 		</ul>
 	</div>
-   <div class="well">
+   <div class="well content-container">
   <?php if (!$_SESSION["auth"]):?>   
 			<form role="form" action="/public/home.php" method="post">
 				<div class="form-group">
@@ -52,13 +51,14 @@ if (!isset($_SESSION["user_id"])) {
 				   }?>				   
 			</div>		
    
-   <?php else :?>   	
+   <?php else :?> 
+   <?php $appUerDTO = unserialize($_SESSION['appUserDTO']);?>  	
 		<h1>User Info</h1>
 			<table class="table table-striped table-bordered">
 			<tbody>
 				<tr>
 					<td>Organization Name</td>
-					<td>$OrgName</td>				
+					<td><?php print $appUerDTO->username;?></td>				
 				</tr>
 				<tr>
 					<td>Location</td>

@@ -2,7 +2,9 @@
 require_once '../Web/includes/bootstrap.php';
 include_DTO('AnnouncementDTO');
 include_Util('DBUtils');
+include_Util('RequestUtils');
 include_Manager('AppManager');
+
 
 class AnnouncementManager implements AppManager
 {
@@ -27,9 +29,9 @@ class AnnouncementManager implements AppManager
 			while($row = $res->fetch_assoc())
 			{				
 				$dto = new AnnouncementDTO();
-				 $dto->loadDTOFromQuery($row);
-				 $conn->close();
-				 return $dto;
+				$dto->loadDTOFromQuery($row);
+				$conn->close();
+				return $dto;
 			}						
 		}						
 	}
@@ -62,5 +64,31 @@ class AnnouncementManager implements AppManager
 	public function save(AbstractDTO $dto, $conn = null)
 	{
 		
+	}
+	
+	public function loadDTOFromRequest(AnnouncementDTO $dto)
+	{
+		$dto->body = RequestUtils::getRequestVariable('body');
+		$dto->title = RequestUtils::getRequestVariable('title');
+		$dto->orgID = RequestUtils::getRequestVariable('orgID');
+		$dto->endDt = RequestUtils::getRequestVariable('endDt');		
+		return $dto;
+	}
+	
+	public function findAllByOrgID($orgID)
+	{
+		$conn =	DBUtils::getConnection();
+		$query = 'Select * from Announcements WHERE OrgID = '. $orgID;
+		$res = $conn->query($query);
+		$announcementList = array();
+		
+		while($result = $res->fetch_assoc())
+		{
+			$dto = new AnnouncementDTO();
+			$dto->loadDTOFromQuery($result);
+			$announcementList[] = $dto;
+		}
+		$conn->close();
+		return $announcementList;
 	}
 }

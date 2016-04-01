@@ -3,7 +3,7 @@ require_once '../Web/includes/bootstrap.php';
 ?>
 
 <div class="well">
-<form role="form" action="/public/home.php" method="post">
+<form role="form" action="/public/userPage.php" method="post">
 	<table width="1200px;" style="border-collapse: separate; border-spacing:1em;">
 	<colgroup>
 		<col width="20%">

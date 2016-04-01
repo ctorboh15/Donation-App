@@ -16,8 +16,7 @@ class AnnouncementDTO extends AbstractDTO
 		$this->body = $row['Body'];
 		$this->orgID = $row['OrgID'];
 		$this->endDt = $row['EndDT'];
-		$this->activeInd = $row['ActiveIND'];		
-		
+		$this->activeInd = $row['ActiveIND'];				
 	}
 	
 

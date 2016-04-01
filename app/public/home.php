@@ -45,7 +45,7 @@ include_once '../Views/includes/header.php';
         <p>Some text in the modal.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Read More</button>
       </div>
     </div>
 
