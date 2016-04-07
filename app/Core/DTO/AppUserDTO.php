@@ -15,8 +15,8 @@ class AppUserDTO extends AbstractDTO
 		$this->username = $row['UserName'];
 		$this->contactID = $row['ContactID'];
 		$this->orgID = $row['OrgID'];
-		$this->crtDt = $row['CrtDT'];
-		$this->activeInd = $row['ActiveIND'];
+		$this->crtDt = $row['CrtDt'];
+		$this->activeInd = $row['ActiveInd'];
 	}
 
 

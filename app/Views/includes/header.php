@@ -24,7 +24,7 @@ if (!isset($_SESSION["user_id"])) {
    <div class="well">
 		<ul class="nav nav-pills nav-stacked">
 			<li role="presentaion"><a href="/public/home.php">Home</a></li>
-			<li role="presentaion"><a href="#">Link 2</a></li>
+			<li role="presentaion"><a href="/public/userPage.php">User Home</a></li>
 			<li role="presentaion"><a href="#">Link 3</a></li>
 		</ul>
 	</div>

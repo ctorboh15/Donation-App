@@ -34,6 +34,7 @@ include_once '../Views/includes/header.php';
 
 <!-- Modal -->
 <div id="announcementModal" class="modal fade" role="dialog">
+<input type="hidden" id="ModalAnncmtID" value="">
   <div class="modal-dialog modal-lg">
     <!-- Modal content-->
     <div class="modal-content">
@@ -45,7 +46,7 @@ include_once '../Views/includes/header.php';
         <p>Some text in the modal.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Read More</button>
+        <button type="button" class="btn btn-default" id="readMore">Read More</button>
       </div>
     </div>
 

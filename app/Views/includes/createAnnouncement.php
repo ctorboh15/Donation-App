@@ -28,13 +28,13 @@ require_once '../Web/includes/bootstrap.php';
 		</tr>
 		<tr>
 			<td>End Date</td>
-			<td width="200px;"><input type="text" class="form-control" id="userName" name="EndDate"></td>
+			<td width="200px;"><input type="text" class="form-control" id="userName" name="endDt"></td>
 			<td><span class="glyphicon glyphicon-calendar"></span></td>
 		</tr>
 		<tr>
 		<td colspan="2" style="text-align:right;"></td>
 			<td colspan="2" style="text-align:right;">
-			<button type="submit" class="btn btn-default" value="login" name="action" style="width: 200px;">Submit</button>
+			<button type="submit" class="btn btn-default" value="create" name="action" style="width: 200px;">Submit</button>
 			<button type="button" class="btn btn-default" value="login" name="action" style="width: 200px;">Clear</button></td>
 		</tr>
 		</tbody>

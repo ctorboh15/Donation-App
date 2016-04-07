@@ -5,7 +5,7 @@
     overflow-y:scroll;
 }
 
-body
+/* body
 {
 	background-color:orange;
 }
@@ -17,10 +17,10 @@ button.btn
 
 div.content-container 
 {
-	background-color:  red;
+	--background-color:  red;
 }
 
 div.panel-footer, div.panel-default > .panel-heading
 {
-	background-color:  red;
-}
+	--background-color:  red;
+}*/
